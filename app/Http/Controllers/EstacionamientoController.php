@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Estacionamiento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EstacionamientoController extends Controller
 {
@@ -14,7 +15,8 @@ class EstacionamientoController extends Controller
      */
     public function index()
     {
-        return view('estacionamientos/estacionamientosIndex');
+        $estacionamientos =estacionamiento::all();
+        return view('estacionamientos/estacionamientosIndex',compact('estacionamientos'));
     }
 
     /**
@@ -35,7 +37,8 @@ class EstacionamientoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        estacionamiento::create($request->all());
+        return redirect()->route('estacionamiento.index');//back();
     }
 
     /**
@@ -46,7 +49,8 @@ class EstacionamientoController extends Controller
      */
     public function show(Estacionamiento $estacionamiento)
     {
-        return view('estacionamientos/estacionamientosShow');
+        $estacionamientos =estacionamiento::all();
+        return view('estacionamientos/estacionamientosShow',compact('estacionamientos'));
     }
 
     /**

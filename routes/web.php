@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
-Route::get('/index', 'EstacionamientoController@index')->name('home');
-
+//
 Route::resource('estacionamiento','EstacionamientoController'); //con este nos evitamos todo el mapeo
