@@ -49,8 +49,7 @@ class EstacionamientoController extends Controller
      */
     public function show(Estacionamiento $estacionamiento)
     {
-        $estacionamientos =estacionamiento::all();
-        return view('estacionamientos/estacionamientosShow',compact('estacionamientos'));
+        return view('estacionamientos.estacionamientoShow',compact('estacionamiento'));
     }
 
     /**
@@ -61,7 +60,7 @@ class EstacionamientoController extends Controller
      */
     public function edit(Estacionamiento $estacionamiento)
     {
-        return view('estacionamientos/estacionamientosForm');
+        return view('estacionamientos/estacionamientosForm',compact('estacionamiento'));
     }
 
     /**
@@ -73,7 +72,11 @@ class EstacionamientoController extends Controller
      */
     public function update(Request $request, Estacionamiento $estacionamiento)
     {
-        //
+        $estacionamiento->nombre=$request->nombre;
+        $estacionamiento->lugar=$request->lugar;
+        $estacionamiento->save();
+
+        return redirect()->route('estacionamiento.show', $estacionamiento->id);//back();
     }
 
     /**
@@ -84,6 +87,7 @@ class EstacionamientoController extends Controller
      */
     public function destroy(Estacionamiento $estacionamiento)
     {
-        //
+        $estacionamiento->delete();
+        return redirect()->route('estacionamiento.index');//back();
     }
 }
