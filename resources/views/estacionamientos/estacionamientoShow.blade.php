@@ -38,6 +38,9 @@
         </div>
     </div>
 </div>
+<div class="col-5">
+    <a href="{{ route('estacionamiento.index')}}" class="btn btn-primary btn-lg btn-block">Regresar</a>
+</div>
 <!-- ============================================================== -->
 <!-- end striped table -->
 <!-- ============================================================== -->
