@@ -18,3 +18,4 @@ Route::get('/', function () {
 
 //
 Route::resource('estacionamiento','EstacionamientoController'); //con este nos evitamos todo el mapeo
+Route::resource('lugar','LugarController');

@@ -25,7 +25,7 @@
         <!-- ============================================================== -->
          <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="{{ route('estacionamiento.create')}}">EstacionaPark</a>
+                <a class="navbar-brand" href="{{ route('estacionamiento.index')}}">EstacionaPark</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -118,13 +118,13 @@ John Abraham</h5>
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-chart-pie"></i>Chart</a>
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-map-marker-alt"></i>Tabla Lugares</a>
                                 <div id="submenu-3" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="chart-c3.html">C3 Charts</a>
+                                            <a class="nav-link" href="{{route('lugar.create')}}">Crear lugar</a>
                                         </li>
-                                        <li class="nav-item">
+                                        <!--<li class="nav-item">
                                             <a class="nav-link" href="chart-chartist.html">Chartist Charts</a>
                                         </li>
                                         <li class="nav-item">
@@ -139,6 +139,7 @@ John Abraham</h5>
                                         <li class="nav-item">
                                             <a class="nav-link" href="chart-gauge.html">Guage</a>
                                         </li>
+                                        POR SI SE LLEGA A OCUPAR-->
                                     </ul>
                                 </div>
                             </li>

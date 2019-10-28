@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Estacionamiento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Lugar;
 
 class EstacionamientoController extends Controller
 {
@@ -37,6 +38,10 @@ class EstacionamientoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre'=> 'required|min:5|max:255',
+            'lugar'=> 'required|min:5|max:255'
+        ]);
         estacionamiento::create($request->all());
         return redirect()->route('estacionamiento.index');//back();
     }
@@ -49,6 +54,7 @@ class EstacionamientoController extends Controller
      */
     public function show(Estacionamiento $estacionamiento)
     {
+        
         return view('estacionamientos.estacionamientoShow',compact('estacionamiento'));
     }
 

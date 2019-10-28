@@ -7,7 +7,7 @@
 <!-- ============================================================== -->
 <div class="col-xl-9 col-lg-6 col-md-12 col-sm-12 col-12">
     <div class="card">
-        <h5 class="card-header">Esctacionamientos</h5>
+        <h5 class="card-header">Estacionamiento</h5>
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
@@ -37,6 +37,48 @@
             </table>
         </div>
     </div>
+    @if(isset($estacionamiento->lugars))
+        <div class="card">
+            <h5 class="card-header">Lugares</h5>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">discapacitado</th>
+                            <th scope="col">disponible</th>
+                            <th scope="col">Fecha de Creacion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @foreach( $estacionamiento->lugars as $lugar)
+                                <td>{{$lugar->id}}</td>
+                                
+                                @if($lugar->discapacitado===1)
+                                    <td>Si</td>
+                                @else
+                                    <td>No</td>
+                                @endif
+                                @if($lugar->disponible===1)
+                                    <td>Si</td>
+                                @else
+                                    <td>No</td>
+                                @endif
+                                <td>{{$lugar->created_at}}</td>
+                            @endforeach
+                            
+                        </tr>
+                    </tbody>
+                </table>
+                <ul>
+                    
+                </ul>
+            </div>
+        </div>
+    @else
+        <p class="h5">No hay lugares en el estacionamiento</p>
+    @endif
 </div>
 <div class="col-5">
     <a href="{{ route('estacionamiento.index')}}" class="btn btn-primary btn-lg btn-block">Regresar</a>
