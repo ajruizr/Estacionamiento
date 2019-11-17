@@ -51,8 +51,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        
                             @foreach( $estacionamiento->lugars as $lugar)
+                            <tr>
                                 <td>{{$lugar->id}}</td>
                                 
                                 @if($lugar->discapacitado===1)
@@ -66,9 +67,11 @@
                                     <td>No</td>
                                 @endif
                                 <td>{{$lugar->created_at}}</td>
+                                <td><a href="{{ route('lugar.show',$lugar->id)}}" class="btn btn-outline-info">Detalle</a></td>
+                            </tr>
                             @endforeach
                             
-                        </tr>
+                        
                     </tbody>
                 </table>
                 <ul>
@@ -78,10 +81,18 @@
         </div>
     @else
         <p class="h5">No hay lugares en el estacionamiento</p>
+        <br>
     @endif
 </div>
-<div class="col-5">
-    <a href="{{ route('estacionamiento.index')}}" class="btn btn-primary btn-lg btn-block">Regresar</a>
+<div>
+    <div class="col-7">
+        <a href="{{ route('lugar.create')}}" class="btn btn-dark">Crear un nuevo lugar</a>
+    </div>
+    <br>
+    <br>
+    <div class="col-5">
+        <a href="{{ route('estacionamiento.index')}}" class="btn btn-primary btn-lg btn-block">Regresar</a>
+    </div>
 </div>
 <!-- ============================================================== -->
 <!-- end striped table -->

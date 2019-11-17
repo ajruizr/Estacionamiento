@@ -22,8 +22,17 @@
                     <tr>
                         <th scope="row">{{$lugar->id}}</th>
                         <td>{{$lugar->estacionamiento->nombre}}</td>
-                        <td>{{$lugar->disponible}}</td>
-                        <td>{{$lugar->discapacitado}}</td>
+                        @if($lugar->discapacitado===1)
+                            <td>Si</td>
+                        @else
+                            <td>No</td>
+                        @endif
+                        @if($lugar->disponible===1)
+                            <td>Si</td>
+                        @else
+                            <td>No</td>
+                        @endif
+                        
                         <td><a href="{{ route ('lugar.edit',$lugar->id) }}" class="btn btn-outline-primary">Editar</a></td>
                         <td>
                         <form action="{{ route ('lugar.destroy',$lugar->id) }}" method="POST">
@@ -35,15 +44,11 @@
                     </tr>
                 </tbody>
             </table>
-            <ul>
-                @foreach($lugar->lugar as $lugar)
-                    <li>{{$lugar->id}}</li>
-            </ul>
         </div>
     </div>
 </div>
 <div class="col-5">
-    <a href="{{ route('lugar.index')}}" class="btn btn-primary btn-lg btn-block">Regresar</a>
+    <a href="{{ route('estacionamiento.index')}}" class="btn btn-primary btn-lg btn-block">Regresar</a>
 </div>
 <!-- ============================================================== -->
 <!-- end striped table -->

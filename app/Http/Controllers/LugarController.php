@@ -60,7 +60,8 @@ class LugarController extends Controller
      */
     public function edit(Lugar $lugar)
     {
-        //
+        $estacionamientos= Estacionamiento::pluck('nombre','id');
+        return view('lugars.lugarForm',compact('lugar'),compact('estacionamientos'));
     }
 
     /**
@@ -72,7 +73,12 @@ class LugarController extends Controller
      */
     public function update(Request $request, Lugar $lugar)
     {
-        //
+        $lugar->estacionamiento_id=$request->estacionamiento_id;
+        $lugar->discapacitado=$request->discapacitado;
+        $lugar->disponible=$request->disponible;
+        $lugar->save();
+
+        return redirect()->route('lugar.show', $lugar->id);//back();
     }
 
     /**
@@ -83,6 +89,7 @@ class LugarController extends Controller
      */
     public function destroy(Lugar $lugar)
     {
-        //
+        $lugar->delete();
+        return redirect()->route('estacionamiento.index');//back();
     }
 }

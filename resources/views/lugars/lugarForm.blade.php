@@ -20,7 +20,7 @@
             
             <div class="form group">
                 {!! Form::label('estacionamiento_id', 'Seleccione al estacionamiento que pertenece') !!}
-                {!! Form::select('estacionamiento_id',$estacionamientos, null,['class'=>'form-control']) !!}
+                {!! Form::select('estacionamiento_id',$estacionamientos ?? '', null,['class'=>'form-control']) !!}
             </div>
             <br>
             
@@ -34,11 +34,22 @@
                     <input type="radio" name="discapacitado" class="custom-control-input" value="1"><span class="custom-control-label">Si</span>
                 </label>
             </div>
+            <div class="form group">
+                    {!! Form::label('disponible', '¿Esta el lugar disponible (No en mantenimiento)?') !!}
+                    {!! Form::radio('disponible','1',true)!!}
+                    <br>
+                    <label class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" name="disponible" checked="" class="custom-control-input" value="0"><span class="custom-control-label">No</span>
+                    </label>
+                    <label class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" name="disponible" class="custom-control-input" value="1"><span class="custom-control-label">Si</span>
+                    </label>
+                </div>
 
             <div class="form group">
                 <p class="text-right">
                     <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                    <a href="{{ route('lugar.index')}}" class="btn btn-danger">Cancel</a>
+                    <a href="{{ route('estacionamiento.index')}}" class="btn btn-danger">Cancel</a>
                 </p>
             </div>
 
