@@ -138,23 +138,17 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Tables</a>
-                                <div id="submenu-5" class="collapse submenu" style="">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="general-table.html">General Tables</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="data-tables.html">Data Tables</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+                            
                             <li class="nav-divider">
-                                Features
+                                <a href="/">¿Quienes Somos?</a>
                             </li>
-                            <li class="nav-item">
+                            <div>
+                                <a href="https://www.facebook.com/alaan.ruiz.9" target="_blank"><i class="fab fa-facebook fa-2x"> * </i></a>
+                                <a href="https://www.instagram.com/alan_ruizr/" target="_blank"><i class="fab fa-instagram fa-2x"> * </i></a>
+                                <a href="https://www.youtube.com/user/FlixMind" target="_blank"><i class="fab fa-youtube fa-2x"> * </i></a>
+                                
+                            <div>
+                            <!--<li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Pages</a>
                                 <div id="submenu-6" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
@@ -288,7 +282,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                 </nav>
