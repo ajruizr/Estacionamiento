@@ -5,6 +5,8 @@
 <!-- ============================================================== -->
 <!-- striped table -->
 <!-- ============================================================== -->
+@include('archivos.archivoForm', ['modelo_id' => $estacionamiento->id, 'modelo_type' => 'App\Estacionamiento'])
+@include('archivos.archivoIndex', ['archivos' => $estacionamiento->archivos])
 <div class="col-xl-9 col-lg-6 col-md-12 col-sm-12 col-12">
     <div class="card">
         <h5 class="card-header">Estacionamiento</h5>
@@ -37,6 +39,7 @@
             </table>
         </div>
     </div>
+    
     @if(isset($estacionamiento->lugars))
         <div class="card">
             <h5 class="card-header">Lugares</h5>

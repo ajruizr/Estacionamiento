@@ -12,4 +12,9 @@ class Lugar extends Model
     {
         return $this->belongsTo(Estacionamiento::class);//es equivalente a ('App\Estacionamiento')
     }
+    
+    public function horarios()
+    {
+        return $this->belongsToMany(Horario::class);
+    }
 }

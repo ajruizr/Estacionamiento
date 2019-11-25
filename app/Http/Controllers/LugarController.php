@@ -15,7 +15,8 @@ class LugarController extends Controller
      */
     public function index()
     {
-        //
+        $lugars = Lugar::all();
+        return view('lugars.lugarIndex',compact('lugars'));
     }
 
     /**
@@ -38,7 +39,8 @@ class LugarController extends Controller
     public function store(Request $request)
     {
         Lugar::create($request->all());
-        return redirect()->route('estacionamiento.index');//back();
+        return redirect()->route('lugar.index')
+        ->with(['mensaje' => 'Lugar almacenado con éxito', 'tipo' => 'alert-success']);//back();
     }
 
     /**
@@ -78,7 +80,8 @@ class LugarController extends Controller
         $lugar->disponible=$request->disponible;
         $lugar->save();
 
-        return redirect()->route('lugar.show', $lugar->id);//back();
+        return redirect()->route('lugar.show', $lugar->id)
+        ->with(['mensaje' => 'Lugar actualizado con éxito', 'tipo' => 'alert-success']);//back();
     }
 
     /**
@@ -90,6 +93,7 @@ class LugarController extends Controller
     public function destroy(Lugar $lugar)
     {
         $lugar->delete();
-        return redirect()->route('estacionamiento.index');//back();
+        return redirect()->route('lugar.index')
+        ->with(['mensaje' => 'Lugar eliminado con éxito', 'tipo' => 'alert-warning']);//back();
     }
 }

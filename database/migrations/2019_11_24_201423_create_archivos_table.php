@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEstacionamientosTable extends Migration
+class CreateArchivosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateEstacionamientosTable extends Migration
      */
     public function up()
     {
-        Schema::create('estacionamientos', function (Blueprint $table) {
+        Schema::create('archivos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
-            $table->string('lugar');
-            $table->softDeletes();
+            $table->unsignedBigInteger('modelo_id');
+            $table->string('modelo_type');
+            $table->string('original');
+            $table->string('hash');
+            $table->string('mime');
+            $table->string('tamaño');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateEstacionamientosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estacionamientos');
+        Schema::dropIfExists('archivos');
     }
 }

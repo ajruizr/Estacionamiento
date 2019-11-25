@@ -43,7 +43,8 @@ class EstacionamientoController extends Controller
             'lugar'=> 'required|min:5|max:255'
         ]);
         estacionamiento::create($request->all());
-        return redirect()->route('estacionamiento.index');//back();
+        return redirect()->route('estacionamiento.index')
+        ->with(['mensaje' => 'Estacionamiento creado con éxito', 'tipo' => 'alert-success']);//back();
     }
 
     /**
@@ -82,7 +83,8 @@ class EstacionamientoController extends Controller
         $estacionamiento->lugar=$request->lugar;
         $estacionamiento->save();
 
-        return redirect()->route('estacionamiento.show', $estacionamiento->id);//back();
+        return redirect()->route('estacionamiento.show', $estacionamiento->id)
+        ->with(['mensaje' => 'Estacionamiento actualizado con éxito', 'tipo' => 'alert-success']);//back();
     }
 
     /**
@@ -94,6 +96,6 @@ class EstacionamientoController extends Controller
     public function destroy(Estacionamiento $estacionamiento)
     {
         $estacionamiento->delete();
-        return redirect()->route('estacionamiento.index');//back();
+        return redirect()->route('estacionamiento.index')->with(['mensaje' => 'Estacionamiento eliminado con éxito', 'tipo' => 'alert-warning']);//back();
     }
 }
