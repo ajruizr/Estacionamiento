@@ -9,11 +9,12 @@
     <div class="card">
         <h5 class="card-header">lugares en Estacionamientos</h5>
         <div class="card-body">
+            {{ $lugars->links() }}
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">id</th>
-                        <th scope="col">Estacionamiento que pertenece(ID)</th>
+                        <th scope="col">Estacionamiento que pertenece</th>
                         <th scope="col">Discapacitado</th>
                         <th scope="col">Disponible</th>
                         <th scope="col"></th>
@@ -23,7 +24,7 @@
                     @foreach($lugars ?? '' as $lugar)
                     <tr>
                         <th scope="row">{{$lugar->id}}</th>
-                        <td>{{$lugar->estacionamiento_id}}</td>
+                        <td>{{$lugar->estacionamiento->nombre}}</td>
                         @if($lugar->discapacitado===1)
                             <td>Si</td>
                         @else
@@ -40,6 +41,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $lugars->links() }}
         </div>
     </div>
 </div>

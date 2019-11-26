@@ -25,7 +25,7 @@
         <!-- ============================================================== -->
          <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="{{ route('estacionamiento.index')}}"><i class="fas fa-bullseye"></i>EstacionaPark  <i class="fas fa-bus"></i></a>
+                <a class="navbar-brand" href="/"><i class="fas fa-bullseye"></i>EstacionaPark  <i class="fas fa-bus"></i></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

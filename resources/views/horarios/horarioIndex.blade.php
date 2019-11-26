@@ -12,7 +12,7 @@
             {{ $horarios->links() }}
                 <table class="table table-striped">
                   <tr>
-                    <th>horario</th>
+                    <th>Horario</th>
                     <th>lugares</th>
                     <th>Acciones</th>
                   </tr>
@@ -30,6 +30,7 @@
                         @endforeach
                         </ul>
                       </td>
+                      <td><a href="{{ route('horario.show', $horario->id) }}" class="btn btn-outline-info">Detalle</a></td>
                     </tr>
                   @endforeach
                 </table>

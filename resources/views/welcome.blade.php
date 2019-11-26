@@ -1,6 +1,6 @@
 
 
-<!DOCTYPE html>
+
 @extends('layouts.sbadmin')
 
 @section('content')

@@ -15,7 +15,7 @@ class LugarController extends Controller
      */
     public function index()
     {
-        $lugars = Lugar::all();
+        $lugars = Lugar::with('estacionamiento')->paginate(10);
         return view('lugars.lugarIndex',compact('lugars'));
     }
 

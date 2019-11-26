@@ -13,9 +13,9 @@
                 <thead>
                     <tr>
                         <th scope="col">id</th>
-                        <th scope="col">estacionamiento</th>
-                        <th scope="col">Disponible</th>
+                        <th scope="col">Estacionamiento al que pertenece</th>
                         <th scope="col">Discapacitado</th>
+                        <th scope="col">Disponible</th>
                     </tr>
                 </thead>
                 <tbody>
