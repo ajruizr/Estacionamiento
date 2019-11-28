@@ -90,6 +90,7 @@
 <div>
     <div class="col-7">
         <a href="{{ route('lugar.create')}}" class="btn btn-dark">Crear un nuevo lugar</a>
+        <a href="{{ route('estacionamiento.infomail',$estacionamiento->id)}}" class="btn btn-dark">Enviar email con Información</a>
     </div>
     <br>
     <br>

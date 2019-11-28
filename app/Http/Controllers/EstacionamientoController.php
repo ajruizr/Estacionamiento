@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Estacionamiento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Mail\InfoEstacionamiento;
 use App\Lugar;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 class EstacionamientoController extends Controller
 {
@@ -97,5 +100,13 @@ class EstacionamientoController extends Controller
     {
         $estacionamiento->delete();
         return redirect()->route('estacionamiento.index')->with(['mensaje' => 'Estacionamiento eliminado con éxito', 'tipo' => 'alert-warning']);//back();
+    }
+
+    public function infomail(Estacionamiento $estacionamiento)
+    {
+        //Envía correo al usuario
+        Mail::to(Auth::user()->email)->send(new InfoEstacionamiento($estacionamiento));
+
+        return redirect()->route('estacionamiento.index')->with(['mensaje' => 'Email enviado con exito', 'tipo' => 'alert-success']);
     }
 }

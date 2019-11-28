@@ -27,7 +27,7 @@ class HorarioController extends Controller
      */
     public function create()
     {
-        $lugars = Lugar::pluck('id');
+        $lugars = Lugar::pluck('id','id');
         return view('horarios.horarioForm', compact('lugars'));
     }
 
@@ -41,8 +41,8 @@ class HorarioController extends Controller
     {
         $horario = Horario::create($request->all());
 
-        //Relaciona el Horario con los alumnos seleccionados
-        $horario->lugars()->attach($request->lugar_id);
+        //Relaciona el Horario con los lugares seleccionados
+        $horario->lugars()->attach($request->lugars_id);
 
         return redirect()->route('horario.show', $horario->id)
             ->with(['mensaje' => 'Horario creado con éxito', 'tipo' => 'alert-success']);
@@ -68,7 +68,7 @@ class HorarioController extends Controller
      */
     public function edit(Horario $horario)
     {
-        $lugars = Lugar::pluck('id' , 'estacionamiento_id');
+        $lugars = Lugar::pluck('id' , 'id');
         $seleccionados = $horario->lugars()->pluck('id');
 
         return view('horarios.horarioForm', compact('lugars', 'horario', 'seleccionados'));
@@ -85,7 +85,7 @@ class HorarioController extends Controller
     {
         $horario->horario = $request->horario;
         $horario->save();
-        $horario->lugars()->sync($request->lugar_id);
+        $horario->lugars()->sync($request->lugars_id);
 
         return redirect()->route('horario.show', $horario->id)
             ->with(['mensaje' => 'Horario actualizado con éxito', 'tipo' => 'alert-success']);

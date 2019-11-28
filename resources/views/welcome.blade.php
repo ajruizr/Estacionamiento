@@ -12,7 +12,9 @@
         <ul class="list-unstyled arrow">
             <li>Alan Josué Ruiz Rubio (Creador).</li>
             <li>Andrew Jair Alba Vázquez (Creador).</li>
-            <li>Samuel Mercado Garibay (Profesor).</li>
+            <li>Samuel Mercado Garibay (Profesor Que Impulsó El Proyecto).</li>
         </ul>
+        <h2>Estacionapark <i class="far fa-copyright"></i> Headquarters</h2>
+        
     </div>
 @endsection

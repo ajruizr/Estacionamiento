@@ -15,12 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes(['verify'=>true]);
     
 //
 Route::resource('estacionamiento','EstacionamientoController'); //con este nos evitamos todo el mapeo
 Route::resource('lugar','LugarController');
 Route::resource('horario','HorarioController');
 
+//mail
+Route::get('estacionamiento/{estacionamiento}/info', 'EstacionamientoController@infomail')->name('estacionamiento.infomail');
 //Archivos->
 Route::post('archivo/cargar', 'ArchivoController@upload')->name('archivo.upload');
 Route::get('archivo/{archivo}/descargar', 'ArchivoController@download')->name('archivo.download');
