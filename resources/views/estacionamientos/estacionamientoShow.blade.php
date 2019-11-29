@@ -96,6 +96,7 @@
     <br>
     <div class="col-5">
         <a href="{{ route('estacionamiento.index')}}" class="btn btn-primary btn-lg btn-block">Regresar</a>
+    <a href='http://estacionamiento.test/api/estacionamiento/{{$estacionamiento->id}}' class="btn btn-outline-warning">Ver API del Estacionamiento</a>
     </div>
 </div>
 <!-- ============================================================== -->

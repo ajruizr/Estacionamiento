@@ -49,6 +49,7 @@
 </div>
 <div class="col-5">
     <a href="{{ route('estacionamiento.index')}}" class="btn btn-primary btn-lg btn-block">Regresar</a>
+    <a href='http://estacionamiento.test/api/lugar/{{$lugar->id}}' class="btn btn-outline-warning">Ver API del Lugar</a>
 </div>
 <!-- ============================================================== -->
 <!-- end striped table -->

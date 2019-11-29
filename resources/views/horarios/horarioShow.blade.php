@@ -27,6 +27,7 @@
 <div>
     <div class="col-5">
         <a href="{{ route('horario.index')}}" class="btn btn-primary btn-lg btn-block">Regresar</a>
+        <a href='http://estacionamiento.test/api/horario/{{$horario->id}}' class="btn btn-outline-warning">Ver API del Horario</a>
     </div>
 </div>
 <!-- ============================================================== -->

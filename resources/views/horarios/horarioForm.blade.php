@@ -20,10 +20,16 @@
             <div class="form-group">
                 {!! Form::label('horario', 'Horario de servicio (HI-HF)') !!}
                 {!! Form::text('horario', null, ['class' => 'form-control']) !!}
+                @error('horario')
+                    <div class="alert alert-danger">Ingrese un horario de servicio para el lugar.</div>
+                @enderror
             </div>
             <div class="form-group">
                 {!! Form::label('lugars_id[]', 'Lugares Disponibles (ID)') !!}
                 {!! Form::select('lugars_id[]', $lugars, $seleccionados ?? null, ['class' => 'form-control', 'multiple']) !!}
+                @error('lugars_id')
+                    <div class="alert alert-danger">Seleccione al menos 1 lugar.</div>
+                @enderror
             </div>
             <div class="col-sm-6 pl-0">
                 <p class="text-right">

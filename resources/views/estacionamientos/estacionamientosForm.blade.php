@@ -24,7 +24,7 @@
                 <!--<input id="inputText1" type="text" class="form-control" placeholder="Ingrese un nombre" name="nombre" value="{{ $estacionamiento->nombre ?? ''}}">-->
                 {!! Form::text('nombre', null, ['class'=>'form-control']) !!}
                 @error('nombre')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="alert alert-danger">Agregue un nombre con al menos 5 caracteres.</div>
                 @enderror
             </div>
             <div class="form-group">
@@ -33,7 +33,7 @@
                 <!--<input id="inputText2" type="text" class="form-control"placeholder="Ingrese una ubicacion" name="lugar" value="{{ $estacionamiento->lugar ?? ''}}">-->
                 {!! Form::text('lugar', null, ['class'=>'form-control']) !!}
                 @error('lugar')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="alert alert-danger">Agregue un nombre del lugar con al menos 5 caracteres.</div>
                 @enderror
             </div>
             <div class="col-sm-6 pl-0">

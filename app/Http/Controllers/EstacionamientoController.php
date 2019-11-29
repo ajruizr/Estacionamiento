@@ -12,6 +12,18 @@ use Illuminate\Support\Facades\Auth;
 
 class EstacionamientoController extends Controller
 {
+    public function __construct()
+    {
+        
+        $this->middleware(['auth','verified'], ['only' => [
+            'update',
+            'create',
+            'store',
+            'edit',
+            'destroy' // Could add bunch of more methods too
+        ]]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -82,6 +94,10 @@ class EstacionamientoController extends Controller
      */
     public function update(Request $request, Estacionamiento $estacionamiento)
     {
+        $request->validate([
+            'nombre'=> 'required|min:5|max:255',
+            'lugar'=> 'required|min:5|max:255'
+        ]);
         $estacionamiento->nombre=$request->nombre;
         $estacionamiento->lugar=$request->lugar;
         $estacionamiento->save();

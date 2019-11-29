@@ -8,6 +8,16 @@ use App\Estacionamiento;
 
 class LugarController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','verified'], ['only' => [
+            'update',
+            'create',
+            'store',
+            'edit',
+            'destroy' // Could add bunch of more methods too
+        ]]);
+    }
     /**
      * Display a listing of the resource.
      *

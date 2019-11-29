@@ -9,6 +9,17 @@ use Illuminate\Http\Request;
 
 class HorarioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','verified'], ['only' => [
+            'update',
+            'create',
+            'store',
+            'edit',
+            'destroy' // Could add bunch of more methods too
+        ]]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -39,6 +50,10 @@ class HorarioController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'horario'=> 'required',
+            'lugars_id'=> 'required',
+        ]);
         $horario = Horario::create($request->all());
 
         //Relaciona el Horario con los lugares seleccionados
@@ -83,6 +98,10 @@ class HorarioController extends Controller
      */
     public function update(Request $request, Horario $horario)
     {
+        $request->validate([
+            'horario'=> 'required',
+            'lugars_id'=> 'required',
+        ]);
         $horario->horario = $request->horario;
         $horario->save();
         $horario->lugars()->sync($request->lugars_id);
